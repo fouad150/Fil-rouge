@@ -72,7 +72,7 @@
                      </button>
                    </form>
 
-                  <!-- begin User -->
+                  <!-- begin User //-->
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://img.freepik.com/free-photo/confident-attractive-caucasian-guy-beige-pullon-smiling-broadly-while-standing-against-gray_176420-44508.jpg?w=996&t=st=1681144811~exp=1681145411~hmac=826d32da2e8b5c711c819e5e65c3351d3e78864008a9b44662cdfb42513dc8df" class="rounded-circle" width="30" height='28' alt="Portrait of a Woman" loading="lazy" />
