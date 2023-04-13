@@ -15,7 +15,7 @@ class BookController extends Controller
     public function __construct()
     {
         $this->middleware(['auth', 'verified', 'checkRole:1'])->except('index', 'searchBook');
-        // //$this->middleware('checkRole:1')->except(['index', 'searchBook']);
+        //$this->middleware('checkRole:1')->except(['index', 'searchBook']);
     }
     /** 
      * Display a listing of the resource.
