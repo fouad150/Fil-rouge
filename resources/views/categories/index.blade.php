@@ -8,7 +8,7 @@
    }
    .table{
     margin: 0 auto;
-    width:390px;
+    width:422px;
     text-align:center;
    }
    .delete-button{
@@ -42,13 +42,13 @@
               <th scope="row">{{++$i}}</th>
               <td>{{$Category->category}}</td>
               <td>
-                <form action="{{ route('categories.destroy',$Category->id) }}" method="POST" style="text-align:end;" class="">
+                <form action="{{ route('categories.destroy',$Category->id) }}" method="POST" style="text-align:end;" class="d-flex justify-content-center">
                     
                     <a class="btn btn-warning text-white" href="{{ route('categories.edit',$Category->id) }}">Edit</a>
                     @csrf
                     @method('DELETE')
        
-                    <button type="submit" class="btn btn-danger delete-button">Delete</button>
+                    <button type="submit" class="btn btn-danger delete-button ms-2" style="margin-right:-28px">Delete</button>
                 </form>
             </td>
             </tr>
