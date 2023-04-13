@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Sale;
+use App\Models\User;
 use COM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,8 +20,11 @@ class CategoryController extends Controller
     public function index()
     {
         $Categories = Category::with('books')->get();
-        $books = Book::with('category')->get();
-        return view('index', compact(['Categories', 'books']));
+        // $books = Book::with('category')->get();
+        $books_count = Book::count();
+        $sales_count = Sale::count();
+        $users_count = User::where('role_id', 1)->count();
+        return view('categories.index', compact(['Categories', 'books_count', 'users_count', 'sales_count']));
     }
 
     /**
@@ -84,7 +89,7 @@ class CategoryController extends Controller
     {
         $Category->update($request->all());
         return redirect()->route('categories.index')
-            ->with('success', 'The category created successfully.');
+            ->with('success', 'The category updated successfully.');
     }
 
     /**
@@ -97,6 +102,6 @@ class CategoryController extends Controller
     {
         $Category->delete();
         return redirect()->route('categories.index')
-            ->with('success', 'The Category deleted successfully');
+            ->with('warning', 'The Category deleted successfully');
     }
 }

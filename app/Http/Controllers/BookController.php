@@ -4,22 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Sale;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
-    /**
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified', 'checkRole:1'])->except('index', 'searchBook');
+        // $this->middleware('checkRole:1')->except(['index', 'searchBook']);
+    }
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+
         $books = Book::with('category')->get();
-        // return view('index', compact('books'));
+        $books_count = Book::count();
+        $sales_count = Sale::count();
+        $users_count = User::where('role_id', 1)->count();
         $Categories = Category::get();
-        return view('index', compact(['Categories', 'books']));
+        return view('index', compact(['Categories', 'books', 'books_count', 'users_count', 'sales_count']));
     }
 
     /**
@@ -125,7 +136,6 @@ class BookController extends Controller
             $request->image->move(public_path('assets/img/books/'), $imageName);
         }
 
-
         Book::where('id', $Book->id)->update([
             'name' => $request->name,
             'author' => $request->author,
@@ -152,6 +162,20 @@ class BookController extends Controller
     {
         $Book->delete();
         return redirect()->route('books.index')
-            ->with('success', 'The Book deleted successfully');
+            ->with('warning', 'The Book deleted successfully');
+    }
+
+
+    public function searchBook(Request $request)
+    {
+        $books = Book::with('category')
+            ->where('name', 'LIKE', '%' . $request->searched_book . '%')
+            ->orWhere('author', 'LIKE', '%' . $request->searched_book . '%')
+            ->orWhereHas('category', function ($query) use ($request) {
+                $query->where('category', 'LIKE', '%' . $request->searched_book . '%');
+            })
+            ->get();
+        $Categories = Category::with('books')->get();
+        return view('index', compact(['books', 'Categories']));
     }
 }

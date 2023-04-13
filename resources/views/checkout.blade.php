@@ -38,10 +38,10 @@
 
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
-              <h6 class="my-0">{{$Book->name}}</h6>
-              <small class="text-muted">{{$Book->description}}</small>
+              <h6 class="my-0">{{$book->name}}</h6>
+              <small class="text-muted">{{$book->description}}</small>
             </div>
-            <span class="text-muted">{{$Book->price}}DH</span>
+            <span class="text-muted">{{$book->price}}DH</span>
           </li>
           <li class="list-group-item d-flex justify-content-between bg-light">
             <div class="text-success">
@@ -51,8 +51,8 @@
             <span class="text-success">−5DH</span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
-            <span>Total (MAD)</span>
-            <strong>{{$Book->price}}</strong>
+            <span>Total ({{$book->price}}MAD)</span>
+            {{-- <strong>{{$Book->price}}</strong> --}}
           </li>
         </ul>
 
@@ -81,7 +81,7 @@
 
         <form action='{{route('sales.store')}}' method="POST" enctype="multipart/form-data">
           @csrf
-          <input type="hidden" name="book_id" value='25'>
+          <input type="hidden" name="book_id" value='{{$book->id}}'>
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">First name</label>

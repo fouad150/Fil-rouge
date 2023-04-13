@@ -17,7 +17,11 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::id();
+        $old_purchases = Sale::with('book')
+            ->where('user_id', $id)
+            ->get();
+        return view('old-purchases', compact('old_purchases'));
     }
 
     /**
@@ -25,14 +29,8 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, Book $Book)
+    public function create()
     {
-        if (auth()->check()) {
-            return view('checkout', compact('Book'));
-            // return ;
-        } else {
-            return redirect()->route('login');
-        }
     }
 
     /**
@@ -70,7 +68,12 @@ class SaleController extends Controller
         $sale->zip = $request->zip;
         $sale->save();
 
-        return redirect()->route('index')
+        $book = Book::find($request->book_id);
+        Book::where('id', $request->book_id)->update([
+            'quantity' => $book->quantity - 1, //decrease the book quantity 
+        ]);
+
+        return redirect()->route('books.index')
             ->with('success', 'The operation has been done successfully.');
     }
 
@@ -82,7 +85,17 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::find($id);
+        if ($book->quantity >= 1) {
+            if (auth()->check()) {
+                return view('checkout', compact('book'));
+            } else {
+                return redirect()->route('login');
+            }
+        } else {
+            return redirect()->route('books.index')
+                ->with('danger', 'Sorry all the quantity has been sold.');
+        }
     }
 
     /**
@@ -91,14 +104,8 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, Book $Book)
+    public function edit($id)
     {
-        // if (auth()->check()) {
-        //     return view('checkout', compact('Book'));
-        //     // return ;
-        // } else {
-        //     return redirect()->route('login');
-        // }
     }
 
     /**

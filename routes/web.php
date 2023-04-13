@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/sales/{x}', [SaleController::class, 'show']);
+
+Route::post('/search-book', [BookController::class, 'searchBook'])->name('search-book');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/checkout', function () {
-    return view('checkout');
-});
 
 Route::resource('categories', CategoryController::class);
 Route::resource('books', BookController::class);
