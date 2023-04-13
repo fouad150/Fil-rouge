@@ -41,14 +41,14 @@
               <h6 class="my-0">{{$book->name}}</h6>
               <small class="text-muted">{{$book->description}}</small>
             </div>
-            <span class="text-muted">{{$book->price}}DH</span>
+            <span class="text-muted">{{$book->price}}MAD</span>
           </li>
           <li class="list-group-item d-flex justify-content-between bg-light">
             <div class="text-success">
               <h6 class="my-0">Promo code</h6>
               <small>EXAMPLECODE</small>
             </div>
-            <span class="text-success">−5DH</span>
+            <span class="text-success">−5MAD</span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total ({{$book->price}}MAD)</span>
