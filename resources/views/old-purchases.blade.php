@@ -89,7 +89,7 @@ height: 10px
     <div class="d-flex justify-content-between">
        <div class="h2 font-weight-bold">Books</div> 
        <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('books.index') }}"> Back</a>
+            <a class="btn btn-success" href="{{ route('home-page') }}"> Back</a>
         </div>
     </div>
     <div class="table-responsive">

@@ -25,6 +25,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home-page', [BookController::class, 'showHomePage'])->name('home-page');
+
 
 Route::resource('categories', CategoryController::class);
 Route::resource('books', BookController::class);

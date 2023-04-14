@@ -46,7 +46,7 @@
                
                <ul class="navbar-nav text-center d-flex align-items-center">
                   <li class="nav-item">
-                     <a href="" class="nav-link text-white">Home</a>
+                     <a href="{{route('home-page')}}" class="nav-link text-white">Visitor</a>
                   </li>
                   <li class="nav-item">
                      <a href="" class="nav-link text-white">Contact</a>
@@ -233,7 +233,6 @@
                         <h6 class="pb-2"><strong>Quantity:</strong> <span class="text-secondary"> {{$book->quantity}}</span></h6>
 
                         <form action="{{route('books.destroy',$book->id)}}" method="POST">
-                           <a class="btn btn-success text-white" href="{{route('sales.show',$book->id)}}">buy now</a>
                            <a  class="btn btn-warning text-white"href="{{route('books.edit',$book->id)}}">Edit</a>
                            @csrf
                            @method('DELETE')

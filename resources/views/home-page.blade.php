@@ -34,7 +34,7 @@
          <div class="container">
             <div class="d-flex">
                <img src="assets/img/other/brand.png" class="img-logo pe-4" alt="Logo" style="width:50px" />
-               <a href="{{route('books.index')}}" class="navbar-brand"><strong>ONLINE-LIBRARY</strong></a>
+               <a href="{{route('home-page')}}" class="navbar-brand"><strong>ONLINE-LIBRARY</strong></a>
             </div>
 
             <button type="button" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navbar">
@@ -46,7 +46,7 @@
                
                <ul class="navbar-nav text-center d-flex align-items-center">
                   <li class="nav-item">
-                     <a href="" class="nav-link text-white">Home</a>
+                     <a href="{{route('books.index')}}" class="nav-link text-white">Admin</a>
                   </li>
                   <li class="nav-item">
                      <a href="" class="nav-link text-white">Contact</a>
@@ -162,13 +162,7 @@
                         <h6 class="pb-2"><strong>Price:</strong> <span class="text-secondary"> {{$book->price}} MAD</span></h6>
                         <h6 class="pb-2"><strong>Quantity:</strong> <span class="text-secondary"> {{$book->quantity}}</span></h6>
 
-                        <form action="{{route('books.destroy',$book->id)}}" method="POST">
-                           <a class="btn btn-success text-white" href="{{route('sales.show',$book->id)}}">buy now</a>
-                           <a  class="btn btn-warning text-white"href="{{route('books.edit',$book->id)}}">Edit</a>
-                           @csrf
-                           @method('DELETE')
-                           <button type="submit" class="btn btn-danger delete-button">Delete</button>
-                        </form>
+                           <a class="btn btn-success text-white" href="{{route('sales.show',$book->id)}}" style="    background-color: #57cd3f;border-color: #57cd3f;"><strong>buy now</strong></a>
                         
                      </div>
                   </div>

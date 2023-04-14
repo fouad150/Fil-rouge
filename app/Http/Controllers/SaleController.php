@@ -73,7 +73,7 @@ class SaleController extends Controller
             'quantity' => $book->quantity - 1, //decrease the book quantity 
         ]);
 
-        return redirect()->route('books.index')
+        return redirect()->route('home-page')
             ->with('success', 'The operation has been done successfully.');
     }
 
@@ -93,7 +93,7 @@ class SaleController extends Controller
                 return redirect()->route('login');
             }
         } else {
-            return redirect()->route('books.index')
+            return redirect()->route('home-page')
                 ->with('danger', 'Sorry all the quantity has been sold.');
         }
     }

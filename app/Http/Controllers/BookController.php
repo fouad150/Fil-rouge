@@ -33,6 +33,16 @@ class BookController extends Controller
         return view('books.index', compact(['Categories', 'books', 'books_count', 'users_count', 'sales_count']));
     }
 
+
+
+
+    public function showHomePage()
+    {
+
+        $books = Book::with('category')->get();
+        return view('home-page', compact('books'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
