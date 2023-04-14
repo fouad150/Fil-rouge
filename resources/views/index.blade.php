@@ -174,7 +174,7 @@
 
       <a href="{{route('books.create')}}" class="m-4 btn btn-primary btn-rounded px-4 rounded-pill no-font-size"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add Book</a>
 
-      
+      <a href="{{route('categories.index')}}" class="m-4 btn btn-primary btn-rounded px-4 rounded-pill no-font-size"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add Category</a>
 
       @if ($message = Session::get('success'))
       <div class="container-fluid">

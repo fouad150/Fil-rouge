@@ -7,9 +7,6 @@
    body {
       background-color: #f5f7fa;
    }
-   body {
-      background-color: #f5f7fa;
-   }
    .table{
     margin: 0 auto;
     width:550px;
@@ -28,14 +25,23 @@
          width: 90% !important;
           margin:0 auto;/* to center the card horizontally */
       }
+      .buttons-parent{
+        width: 95vw!important;
+      }
    }
 
 </style>
+    
 
+      <div class="container mt-4 " >
+        <div class="d-flex justify-content-between buttons-parent mb-2" style="width: 43vw;margin: 0 auto;">
+            <a href="{{route('categories.create')}}" class=" btn btn-primary btn-rounded px-4 rounded-pill no-font-size" style="font-size:14px;"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add Category</a>
+            <a class="btn btn-success" href="{{ route('books.index') }}"> Back</a>
+        </div>
+        
 
-      
-
-      @if ($message = Session::get('success'))
+     {{-- return response --}}
+        @if ($message = Session::get('success'))
       <div class="container-fluid">
          <div class="alert alert-success no-font-size">
             <p>{{ $message }}</p>
@@ -58,16 +64,11 @@
         </div>
       </div>     
       @endif
-
-
-      <div class="container " >
-        <a href="{{route('categories.create')}}" class="m-4 btn btn-primary btn-rounded px-4 rounded-pill no-font-size" style="font-size:14px;"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add Category</a>
-    
     
         {{-- Categories table --}}
         
           <div class="table-responsive">
-             <table class="table">
+             <table class="table mt-4">
               <thead class="table-primary">
                 <tr>
                   <th scope="col">#</th>
