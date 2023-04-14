@@ -20,11 +20,7 @@ class CategoryController extends Controller
     public function index()
     {
         $Categories = Category::with('books')->get();
-        // $books = Book::with('category')->get();
-        $books_count = Book::count();
-        $sales_count = Sale::count();
-        $users_count = User::where('role_id', 1)->count();
-        return view('categories.index', compact(['Categories', 'books_count', 'users_count', 'sales_count']));
+        return view('categories.index', compact('Categories'));
     }
 
     /**
