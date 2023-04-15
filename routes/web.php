@@ -28,6 +28,7 @@ Route::get('/', function () {
 Route::get('/home-page', [BookController::class, 'showHomePage'])->name('home-page');
 
 
+
 Route::resource('categories', CategoryController::class);
 Route::resource('books', BookController::class);
 Route::resource('sales', SaleController::class);

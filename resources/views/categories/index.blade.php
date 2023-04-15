@@ -42,7 +42,7 @@
 
      {{-- return response --}}
         @if ($message = Session::get('success'))
-      <div class="container-fluid">
+      <div class="container-fluid mt-4">
          <div class="alert alert-success no-font-size">
             <p>{{ $message }}</p>
         </div>
@@ -50,7 +50,7 @@
       @endif
 
       @if ($message = Session::get('danger'))
-      <div class="container-fluid">
+      <div class="container-fluid mt-4">
          <div class="alert alert-danger no-font-size">
             <p>{{ $message }}</p>
         </div>
@@ -58,7 +58,7 @@
       @endif
 
       @if ($message = Session::get('warning'))
-      <div class="container-fluid">
+      <div class="container-fluid mt-4">
          <div class="alert alert-warning no-font-size">
             <p>{{ $message }}</p>
         </div>

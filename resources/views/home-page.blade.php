@@ -90,10 +90,22 @@
                            <a class="dropdown-item" href="{{route('sales.index')}}">Previous purchases</a>
                         </li>
                         <li>
-                           <a class="dropdown-item" href="#">My profile</a>
+                           <x-responsive-nav-link :href="route('profile.edit')" class="dropdown-item">
+                              {{ __('Profile') }}
+                          </x-responsive-nav-link>
                         </li>
                         <li>
-                           <a class="dropdown-item" href="#">Logout</a>
+                           {{-- <a class="dropdown-item" href="#">Logout</a> --}}
+                           <form method="POST" action="{{ route('logout') }}" >
+                              @csrf
+          
+                              <x-responsive-nav-link :href="route('logout')"
+                                      onclick="event.preventDefault();
+                                                  this.closest('form').submit();"
+                                      class="dropdown-item">
+                                  {{ __('Log Out') }}
+                              </x-responsive-nav-link>
+                          </form>
                         </li>
                      </ul>
                   </li>
@@ -107,7 +119,7 @@
 
 
       @if ($message = Session::get('success'))
-      <div class="container-fluid">
+      <div class="container-fluid mt-4">
          <div class="alert alert-success no-font-size">
             <p>{{ $message }}</p>
         </div>
@@ -115,7 +127,7 @@
       @endif
 
       @if ($message = Session::get('danger'))
-      <div class="container-fluid">
+      <div class="container-fluid mt-4">
          <div class="alert alert-danger no-font-size">
             <p>{{ $message }}</p>
         </div>
@@ -123,7 +135,7 @@
       @endif
 
       @if ($message = Session::get('warning'))
-      <div class="container-fluid">
+      <div class="container-fluid mt-4">
          <div class="alert alert-warning no-font-size">
             <p>{{ $message }}</p>
         </div>

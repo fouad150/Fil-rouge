@@ -17,7 +17,7 @@ class checkRole
     public function handle($request, Closure $next, $role_id)
     {
         if (auth()->check() && auth()->user()->role_id == $role_id) {
-            return redirect()->route('books.index')->with('danger', 'You do not have permission to access this resource.');
+            return redirect()->route('home-page')->with('danger', 'You do not have permission to access this resource.');
         }
 
         return $next($request);
