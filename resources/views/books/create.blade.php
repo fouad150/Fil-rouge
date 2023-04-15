@@ -75,8 +75,6 @@
                   </div>
                   <div class="modal-footer">
                       <a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-                      {{-- <button type="submit" name="delete" class="btn btn-danger task-action-btn" id="book-delete-btn">Delete</button>
-                      <button type="submit" name="update" class="btn btn-warning task-action-btn" id="book-update-btn">Update</button> --}}
                       <button type="submit" name="save" class="btn btn-primary task-action-btn" id="book-save-btn">Save</button>
                   </div>
        </form>
