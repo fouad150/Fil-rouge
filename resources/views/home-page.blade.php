@@ -95,7 +95,7 @@
                           </x-responsive-nav-link>
                         </li>
                         <li>
-                           {{-- <a class="dropdown-item" href="#">Logout</a> --}}
+                           {{-- <a class="dropdown-item" href="">Logout</a> --}}
                            <form method="POST" action="{{ route('logout') }}" >
                               @csrf
           
