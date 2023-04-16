@@ -217,7 +217,7 @@
     <!-- BEGIN footer -->
     <footer class="text-center text-lg-start text-white no-font-size mt-4" style="background-color: #1c2331">
       <!-- Social media -->
-      <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
+      <section class="d-flex justify-content-between p-4" style="background-color: #0d84aa">
          <!-- Left -->
          <div class="me-5">
             <span>Get connected with us on social networks:</span>

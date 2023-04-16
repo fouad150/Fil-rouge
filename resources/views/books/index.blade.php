@@ -100,7 +100,7 @@
    <!-- end Header -->
 
 
-   <div class="container-fluid pt-4" >
+   <div class="container-fluid pt-4"  id="5">
       <section>
         <div class="row">
           <div class="col-xl-3 col-md-4 mb-4">
@@ -275,12 +275,14 @@
                   </div>
                </div>
             --}}
-
+            <?php $x=5?>
+            <button onclick="print()">Print</button>
+            <button onclick="printTicket()">Print Ticket</button>
  
     <!-- BEGIN footer -->
     <footer class="text-center text-lg-start text-white no-font-size mt-4" style="background-color: #1c2331">
       <!-- Social media -->
-      <section class="d-flex justify-content-between p-4" style="background-color: #6351ce">
+      <section class="d-flex justify-content-between p-4" style="background-color: #0d84aa">
          <!-- Left -->
          <div class="me-5">
             <span>Get connected with us on social networks:</span>
@@ -390,6 +392,41 @@
       <!-- Copyright -->
    </footer>
    <!-- END footer -->
+
+
+   <script>
+//   function print (){
+//       // const page = document.body.innerHTML;
+//       // const content = document.getElementById(id).innerHTML;
+//       // document.body.innerHTML = content;
+//       window.print();
+//       // document.body.innerHTML = page;
+//   }
+
+  function printTicket() {
+    window.print();
+}
+
+
+let isPrinting = false;
+
+function print() {
+  if (isPrinting) {
+    return;
+  }
+  
+  isPrinting = true;
+  
+//   const page = document.body.innerHTML;
+//   const content = document.getElementById(id).innerHTML;
+//   document.body.innerHTML = content;
+  window.print();
+//   document.body.innerHTML = page;
+  
+//   isPrinting = false;
+}
+
+  </script>
 
   @endsection
        

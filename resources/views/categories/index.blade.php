@@ -36,7 +36,7 @@
       <div class="container mt-4 " >
         <div class="d-flex justify-content-between buttons-parent mb-2" style="width: 43vw;margin: 0 auto;">
             <a href="{{route('categories.create')}}" class=" btn btn-primary btn-rounded px-4 rounded-pill no-font-size" style="font-size:14px;"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add Category</a>
-            <a class="btn btn-success" href="{{ route('books.index') }}"> Back</a>
+            <a class="btn btn-light" href="{{ route('books.index') }}" style="border-color:gray"> Back</a>
         </div>
         
 

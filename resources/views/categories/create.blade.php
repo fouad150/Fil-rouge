@@ -10,7 +10,7 @@
                 <h2>Add New Category</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('categories.index') }}"> Back</a>
+                <a class="btn btn-light" href="{{ route('categories.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                <a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
                {{-- <button type="submit" name="delete" class="btn btn-danger task-action-btn" id="book-delete-btn">Delete</button>
                <button type="submit" name="update" class="btn btn-warning task-action-btn" id="book-update-btn">Update</button> --}}
-                <button type="submit" name="save" class="btn btn-primary task-action-btn" id="category-save-btn">Save</button>
+                <button type="submit" name="save" class="btn btn-info task-action-btn" id="category-save-btn">Save</button>
            </div>
        </form>
 </div>

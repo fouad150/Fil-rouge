@@ -10,7 +10,7 @@
                 <h2>Edit New book</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('books.index') }}"> Back</a>
+                <a class="btn btn-light" href="{{ route('books.index') }}"> Back</a>
             </div>
         </div>
     </div>

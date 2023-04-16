@@ -10,7 +10,7 @@
                 <h2>Add New book</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('books.index') }}"> Back</a>
+                <a class="btn btn-light" href="{{ route('books.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -75,10 +75,20 @@
                   </div>
                   <div class="modal-footer">
                       <a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-                      <button type="submit" name="save" class="btn btn-primary task-action-btn" id="book-save-btn">Save</button>
+                      <button type="submit" name="save" class="btn btn-info task-action-btn" id="book-save-btn">Save</button>
                   </div>
        </form>
 </div>
+
+
+<button onclick="printTicket()">Print Ticket</button>
+
+
+<script>
+      function printTicket() {
+      window.print();
+}
+</script>
 
 @endsection
 

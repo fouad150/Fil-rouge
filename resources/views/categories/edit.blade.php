@@ -9,7 +9,7 @@
                 <h2>Update Category</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('categories.index') }}"> Back</a>
+                <a class="btn btn-light" href="{{ route('categories.index') }}"> Back</a>
             </div>
         </div>
     </div>
