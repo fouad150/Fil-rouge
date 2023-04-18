@@ -25,13 +25,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home-page', [BookController::class, 'showHomePage'])->name('home-page');
-
-Route::get('/facture/{book_id}', [SaleController::class, 'printFacture'])->name('facture');
-
 Route::resource('categories', CategoryController::class);
 Route::resource('books', BookController::class);
 Route::resource('sales', SaleController::class);
+
+Route::get('/home-page', [BookController::class, 'showHomePage'])->name('home-page');
+
+Route::get('/facture/{book_id}', [SaleController::class, 'printFacture'])->name('facture');
 
 
 Route::get('/dashboard', function () {
