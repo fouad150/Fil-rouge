@@ -84,10 +84,21 @@
                            <a class="dropdown-item" href="{{route('sales.index')}}">Previous purchases</a>
                         </li>
                         <li>
-                           <a class="dropdown-item" href="#">My profile</a>
+                           <x-responsive-nav-link :href="route('profile.edit')" class="dropdown-item">
+                              {{ __('Profile') }}
+                          </x-responsive-nav-link>
                         </li>
                         <li>
-                           <a class="dropdown-item" href="#">Logout</a>
+                           <form method="POST" action="{{ route('logout') }}" >
+                              @csrf
+          
+                              <x-responsive-nav-link :href="route('logout')"
+                                      onclick="event.preventDefault();
+                                                  this.closest('form').submit();"
+                                      class="dropdown-item">
+                                  {{ __('Log Out') }}
+                              </x-responsive-nav-link>
+                          </form>
                         </li>
                      </ul>
                   </li>
@@ -218,7 +229,6 @@
                            aspect-ratio: 3/4;
                         "
                      >
-                        <!-- <img src="" alt="Trendy Pants and Shoes" class="img-fluid rounded-start" /> -->
                      </div>
                   </div>
                   
@@ -275,9 +285,6 @@
                   </div>
                </div>
             --}}
-            <?php $x=5?>
-            <button onclick="print()">Print</button>
-            <button onclick="printTicket()">Print Ticket</button>
  
     <!-- BEGIN footer -->
     <footer class="text-center text-lg-start text-white no-font-size mt-4" style="background-color: #1c2331">
@@ -393,40 +400,6 @@
    </footer>
    <!-- END footer -->
 
-
-   <script>
-//   function print (){
-//       // const page = document.body.innerHTML;
-//       // const content = document.getElementById(id).innerHTML;
-//       // document.body.innerHTML = content;
-//       window.print();
-//       // document.body.innerHTML = page;
-//   }
-
-  function printTicket() {
-    window.print();
-}
-
-
-let isPrinting = false;
-
-function print() {
-  if (isPrinting) {
-    return;
-  }
-  
-  isPrinting = true;
-  
-//   const page = document.body.innerHTML;
-//   const content = document.getElementById(id).innerHTML;
-//   document.body.innerHTML = content;
-  window.print();
-//   document.body.innerHTML = page;
-  
-//   isPrinting = false;
-}
-
-  </script>
 
   @endsection
        

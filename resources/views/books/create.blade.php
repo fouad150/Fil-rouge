@@ -81,15 +81,6 @@
 </div>
 
 
-<button onclick="printTicket()">Print Ticket</button>
-
-
-<script>
-      function printTicket() {
-      window.print();
-}
-</script>
-
 @endsection
 
 

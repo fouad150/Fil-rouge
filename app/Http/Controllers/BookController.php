@@ -185,7 +185,10 @@ class BookController extends Controller
                 $query->where('category', 'LIKE', '%' . $request->searched_book . '%');
             })
             ->get();
+        $books_count = Book::count();
+        $sales_count = Sale::count();
+        $users_count = User::where('role_id', 1)->count();
         $Categories = Category::with('books')->get();
-        return view('books.index', compact(['books', 'Categories']));
+        return view('books.index', compact(['Categories', 'books', 'books_count', 'users_count', 'sales_count']));
     }
 }

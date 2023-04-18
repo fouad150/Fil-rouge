@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Sale;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request as FacadesRequest;
+use PDF;
 
 class SaleController extends Controller
 {
@@ -68,13 +70,15 @@ class SaleController extends Controller
         $sale->zip = $request->zip;
         $sale->save();
 
-        $book = Book::find($request->book_id);
+
+        $bought_book = Book::find($request->book_id);
         Book::where('id', $request->book_id)->update([
-            'quantity' => $book->quantity - 1, //decrease the book quantity 
+            'quantity' => $bought_book->quantity - 1, //decrease the book quantity 
         ]);
 
-        return redirect()->route('home-page')
-            ->with('success', 'The operation has been done successfully.');
+        // return redirect()->route('generate_pdf', ['book' => $book])
+        //     ->with('success', 'The operation has been done successfully.');
+        return view('facture', compact('bought_book'));
     }
 
     /**
@@ -129,5 +133,15 @@ class SaleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function printFacture($bought_book_id)
+    {
+        $bought_book = Book::find($bought_book_id);
+        // $data = [
+        //     'bought_book' => $bought_book,
+        // ];
+        $pdf = PDF::loadView('print-facture', ['bought_book' => $bought_book]);
+        return $pdf->download('book-facture.pdf');
     }
 }
